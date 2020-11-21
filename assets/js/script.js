@@ -117,14 +117,8 @@ function renderCityInfo(lat, lon) {
             uviSpan.addClass("badge badge-success");
         } else if (uvi <= 5) {
             uviSpan.addClass("badge badge-warning");
-        } else if (uvi <= 7) {
-            uviSpan.addClass("badge");
-            uviSpan.css("background-color", "orange");
-        } else if (uvi <= 9) {
+        }  else if (uvi <= 9) {
             uviSpan.addClass("badge badge-danger");
-        } else {
-            uviSpan.addClass("badge");
-            uviSpan.css("background-color", "purple");
         }
         $("#uv-index").append(uviSpan);
 
