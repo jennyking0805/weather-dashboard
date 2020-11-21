@@ -3,9 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+          crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+
     <title>Your Weather Now</title>
 </head>
 <body>
+    <header class="header">
+        <h1>Your Weather Now</h1>
+    </header>
+
+    <div class="row container-fluid">
+        <div class="col-3 sidebar">
+            <h2>Search City Here:</h2>
+
+            <div class="input-group">
+                <input type="text" id="city-input" class="form-control" placeholder="City Name" aria-describedby="search-city" />
+                
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="search-city">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <ul class="list-group" id="city-list"></ul>
+
+        </div>
+
+        <div class="col" id="city-info">
+            <div class="card">
+                <nav class="navbar justify-content">
+                        <h3>Current Forecast:</h3>
+                    </span>
+                </nav>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text" id="temperature"></p>
+                    <p class="card-text" id="humidity"></p>
+                    <p class="card-text" id="wind-speed"></p>
+                    <p class="card-text" id="uv-index"></p>
+                </div>
+            </div>
+
+            <nav class="navbar justify-content-center">
+                <span class="navbar-brand mb-0"><h3>5-Day Forecast</h3></span>
+            </nav>
+            <div class="row row-cols-3 justify-content-center" id="forecast"></div>
+    </div>
     
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
