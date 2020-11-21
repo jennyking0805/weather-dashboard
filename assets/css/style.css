@@ -12,9 +12,22 @@ header {
     color: #2F4F4F;
     background-image: linear-gradient(15deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
     padding: 15px;
+    border-radius: 45px;
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bolder;
+    text-align: center;
+    color: #2F4F4F;
+    background-image: linear-gradient(15deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 180px;
+}
+
+.card {
+    font-weight: bolder;
+    margin-bottom: 20px;
+    margin-right: 15px;
 }

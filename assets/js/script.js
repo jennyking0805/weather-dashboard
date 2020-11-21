@@ -34,7 +34,6 @@ $("#search-city").on("click", function (event) {
         url: weatherURL1,
         method: "GET",
     }).then(function (response) {
-        console.log(response);
         lat = response.coord.lat;
         lon = response.coord.lon;
 
@@ -46,8 +45,6 @@ $("#search-city").on("click", function (event) {
             cityList.text(response.name);
             cityList.attr("lat", response.coord.lat);
             cityList.attr("lon", response.coord.lon);
-            cityList.css("background-color", "lightgray");
-            cityList.css("color", "blue");
             $("#city-list").prepend(cityList);
 
         cityList.on("click", function () {
@@ -73,7 +70,6 @@ function renderLastCity() {
         url: weatherURL2,
         method: "GET",
     }).then(function (response) {
-        console.log(response);
         lat = response.coord.lat;
         lon = response.coord.lon;
 
@@ -108,7 +104,7 @@ function renderCityInfo(lat, lon) {
         method: "GET",
     }).then(function (response) {
 
-        $("#temperature").text(`Temperature: ${response.current.temp} \xB0F`);
+        $("#temperature").text(`Temp: ${response.current.temp} \xB0F`);
         $("#humidity").text(`Humidity: ${response.current.humidity}%`);
         $("#wind-speed").text(`Wind Speed: ${response.current.wind_speed} MPH`);
         $("#uv-index").text(`UV Index: `);
@@ -117,7 +113,7 @@ function renderCityInfo(lat, lon) {
         uviSpan.text(`${response.current.uvi}`);
         
         var uvi = response.current.uvi;
-        if (uvi <= 2) {
+        if (uvi <= 3) {
             uviSpan.addClass("badge badge-success");
         } else if (uvi <= 5) {
             uviSpan.addClass("badge badge-warning");
@@ -128,8 +124,7 @@ function renderCityInfo(lat, lon) {
             uviSpan.addClass("badge badge-danger");
         } else {
             uviSpan.addClass("badge");
-            uviSpan.css("background-color", "rebeccapurple");
-            uviSpan.css("color", "white");
+            uviSpan.css("background-color", "purple");
         }
         $("#uv-index").append(uviSpan);
 
@@ -145,9 +140,9 @@ function cityForecast(response) {
     days.slice(1, 6).map((day) => {
         var dayCard = $("<div>");
         
-        dayCard.addClass("card col-md-5 daycard");
-        dayCard.css("background-color", "lightskyblue");
-        dayCard.css("font-size", "15px");
+        dayCard.addClass("card");
+        dayCard.css("background-color", "#2b4bff");
+        dayCard.css("font-size", "16px");
 
         var dayCardBody = $("<div>");
         dayCardBody.addClass("card-body");
@@ -174,14 +169,6 @@ function cityForecast(response) {
         var dayHumidity = $("<p>");
         dayHumidity.text(`Humidity: ${day.humidity}%`);
         dayCardBody.append(dayHumidity);
-
-        var dayWind = $("<p>")
-        dayWind.text(`Wind Speed: ${day.wind_speed}MPH`);
-        dayCardBody.append(dayWind);
-
-        var dayUvi = $("<p>")
-        dayUvi.text(`UVI: ${day.uvi}`);
-        dayCardBody.append(dayUvi);
 
         $("#forecast").append(dayCard);
     });
